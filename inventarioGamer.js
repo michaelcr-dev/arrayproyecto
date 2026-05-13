@@ -1,9 +1,9 @@
 let productos = [`Mouse`, `Teclado`, `Monitor`, `Audifonos`];
-    
+
 function mostrarInventario(array) {
     console.log(`Inventario actual:`)
-    for (let i = 0; i < array.length ; i++) {
-        console.log( `${i+1}.-${array[i]}`)
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${i + 1}.-${array[i]}`)
     }
 }//mostrarInventario
 
@@ -11,26 +11,38 @@ console.log(mostrarInventario(productos))
 
 
 function agregarProducto(array) {
-    let producto = prompt(`Ingresa el producto que deseas agregar`);
-    array.push(producto)
+    let product = prompt(`Ingresa el producto que quieres agregar`)
+    let index = array.indexOf(product);
+    if (index >= 0) {
+        console.log(`Producto ya registrado`)
+        console.log(`Producto no agregado: ${product} \n Inventario atual: `)
+        for (let i = 0; i < array.length; i++) {
+            console.log(`${i + 1}.-${array[i]}`)
+        }//for
+    } else {
+        array.push(product)
+        console.log(`Producto agregado: ${product} \n Inventario actualizado: `)
+        for (let i = 0; i < array.length; i++) {
+            console.log(`${i + 1}.-${array[i]}`)
+        }//for
 
-    console.log(`Producto agregado: ${producto} \n Inventario actualizado: `)
-    for (let i = 0; i < array.length ; i++) {
-        console.log( `${i+1}.-${array[i]}`)
     }
-}//agregarProducto
 
+    // array.push(producto)
+
+
+}//agregarProducto
 
 
 agregarProducto(productos)
 
 function eliminarProducto(array) {
-    let largo = array.length -1
+    let largo = array.length - 1
     console.log(`Producto eliminado ${array[largo]}`)
     array.pop()
     console.log(`Inventario actualizado:`)
-    for (let i = 0; i < array.length ; i++) {
-        console.log( `${i+1}.-${array[i]}`)
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${i + 1}.-${array[i]}`)
     }
 }//eliminarProducto
 eliminarProducto(productos)
@@ -50,22 +62,23 @@ function buscarProducto(array, busqueda) {
     }
 }//buscarProducto
 
-buscarProducto(productos,`Teclado`)
+buscarProducto(productos, `Teclado`)
 
 
 function ordenarProductos(array) {
     array.sort()
     console.log(`Inventario ordenado alfabeticamente:`)
-    for (let i = 0; i < array.length ; i++) {
-        console.log( `${i+1}.-${array[i]}`)
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${i + 1}.-${array[i]}`)
     }
 }//ordenarProducto
 
 ordenarProductos(productos)
 
 
-function mostrarCantidad(array){
+function mostrarCantidad(array) {
     return console.log(`Cantidad total: ${array.length} productos`)
 }//mostrarCantidad
 
 mostrarCantidad(productos)
+let mike
